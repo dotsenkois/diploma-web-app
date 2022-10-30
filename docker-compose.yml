@@ -10,7 +10,7 @@ services:
     volumes:
       - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "5433:5432"
+      - "5432:5432"
 
   backend:
     build:
@@ -26,6 +26,8 @@ services:
       - DB_NAME=netology
       - DB_USER=dotsenkois
       - DB_PASSWORD=12345678
+      - HOST=localhost
+      - PORT=5432
 
   frontend:
     build:
