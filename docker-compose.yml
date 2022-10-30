@@ -18,8 +18,8 @@ services:
       dockerfile: ./backend.Dockerfile
     # volumes:
     #   - ./backend/:/usr/src/app
-    depends_on:
-      - postgresdb
+    # depends_on:
+      # - postgresdb
     ports:
       - "8000:8000"
     environment:
