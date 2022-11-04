@@ -37,7 +37,11 @@ services:
       - backend
       # - postgresdb
     ports:
-      - "80:80"
+      - "8080:8080"
       - "443:443"
     # volumes:
     #   - ./static/:/static/
+    networks:
+     - my-web-app
+networks:
+  my-web-app:
