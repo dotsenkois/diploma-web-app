@@ -26,7 +26,7 @@ services:
       - DB_NAME=netology
       - DB_USER=dotsenkois
       - DB_PASSWORD=12345678
-      - HOST=84.201.132.187
+      - HOST=192.168.10.100
       - PORT=5432
 
   frontend:
