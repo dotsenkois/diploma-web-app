@@ -18,6 +18,7 @@ pipeline {
         stage('Prepare') {
             steps {
                 git branch: 'main', credentialsId: '1', url: 'https://github.com/dotsenkois/diploma-web-app'
+                sh 'docker login --username oauth --password $YC_TOKEN cr.yandex'
             }
         }
         
@@ -58,8 +59,8 @@ pipeline {
           }
         stage('Tag image') {
             steps {
-                sh 'docker tag webapp_backend:latest cr.yandex/${REGISTRY_ID}/diploma-web-app_backend:${MAJOR_VER}.${MINOR_VER}.${BUILD_NUMBER}'
-                sh 'docker tag webapp_frontend:latest cr.yandex/${REGISTRY_ID}/diploma-web-app_frontend:${MAJOR_VER}.${MINOR_VER}.${BUILD_NUMBER}'
+                sh 'docker tag web-app_backend:latest cr.yandex/${REGISTRY_ID}/diploma-web-app_backend:${MAJOR_VER}.${MINOR_VER}.${BUILD_NUMBER}'
+                sh 'docker tag web-app_frontend:latest cr.yandex/${REGISTRY_ID}/diploma-web-app_frontend:${MAJOR_VER}.${MINOR_VER}.${BUILD_NUMBER}'
             }
         }
         
