@@ -21,8 +21,7 @@ pipeline {
                 sh 'docker login --username oauth --password ${YC_TOKEN} cr.yandex'
             }
         }
-        
-        
+
         stage('Build') {
             steps {
                 echo "${BUILD_NUMBER}"
