@@ -27,7 +27,7 @@ pipeline {
                 sh '''
                 docker-compose up &
                 '''
-                sleep 240
+                sleep 150
             }
         }
         
@@ -58,8 +58,8 @@ pipeline {
           }
         stage('Tag image') {
             steps {
-                sh 'docker tag webapp_backend cr.yandex/${REGISTRY_ID}/diploma-web-app_backend:${MAJOR_VER}.${MINOR_VER}.${BUILD_NUMBER}'
-                sh 'docker tag webapp_frontend cr.yandex/${REGISTRY_ID}/diploma-web-app_frontend:${MAJOR_VER}.${MINOR_VER}.${BUILD_NUMBER}'
+                sh 'docker tag webapp_backend:latest cr.yandex/${REGISTRY_ID}/diploma-web-app_backend:${MAJOR_VER}.${MINOR_VER}.${BUILD_NUMBER}'
+                sh 'docker tag webapp_frontend:latest cr.yandex/${REGISTRY_ID}/diploma-web-app_frontend:${MAJOR_VER}.${MINOR_VER}.${BUILD_NUMBER}'
             }
         }
         
@@ -88,13 +88,8 @@ pipeline {
     }
     post {
         always {
-            sh 'docker rm -vf $(docker ps -aq)'
-            sh 'docker rmi -f $(docker images -aq)'
+            sh '#docker rm -vf $(docker ps -aq) 2> /dev/null' 
+            sh '#docker rmi -f $(docker images -aq) 2> /dev/null' 
         }
-
     }
-
-
-
-    
 }
