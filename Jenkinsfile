@@ -27,7 +27,7 @@ pipeline {
                 sh '''
                 docker-compose up &
                 '''
-                sleep 180
+                sleep 240
             }
         }
         
@@ -70,7 +70,8 @@ pipeline {
               }
             }
             steps {
-                sh 'docker push'
+                sh 'docker push cr.yandex/${REGISTRY_ID}/diploma-web-app_backend:${MAJOR_VER}.${MINOR_VER}.${BUILD_NUMBER}'
+                sh 'docker push cr.yandex/${REGISTRY_ID}/diploma-web-app_frontend:${MAJOR_VER}.${MINOR_VER}.${BUILD_NUMBER}'
             }
         }
         
