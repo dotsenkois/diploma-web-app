@@ -18,7 +18,7 @@ pipeline {
         stage('Prepare') {
             steps {
                 git branch: 'main', credentialsId: '1', url: 'https://github.com/dotsenkois/diploma-web-app'
-                sh 'docker login --username oauth --password $YC_TOKEN cr.yandex'
+                sh 'docker login --username oauth --password "$YC_TOKEN" cr.yandex'
             }
         }
         
