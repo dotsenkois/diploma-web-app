@@ -8,7 +8,6 @@ pipeline {
       PORT="5432"
       MAJOR_VER="0"
       MINOR_VER="0"
-      REGISTRY_ID="crpf83jkr9h92qmose30"
     }
     options {
         skipStagesAfterUnstable()
