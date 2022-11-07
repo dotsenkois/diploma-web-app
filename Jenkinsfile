@@ -8,6 +8,7 @@ pipeline {
       PORT="5432"
       MAJOR_VER="0"
       MINOR_VER="0"
+      
     }
     options {
         skipStagesAfterUnstable()
