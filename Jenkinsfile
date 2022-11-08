@@ -27,9 +27,9 @@ pipeline {
             steps {
                 echo "${BUILD_NUMBER}"
                 sh '''
-                docker-compose up
+                docker-compose up &
                 '''
-                // sleep 150
+                 sleep 30
             }
         }
         
