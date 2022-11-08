@@ -52,8 +52,6 @@ pipeline {
         stage('Stop containers') {
             steps {
                 sh '''
-                // docker ps
-                // docker images
                 docker-compose stop
                 '''
             }
