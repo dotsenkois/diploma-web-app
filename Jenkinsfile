@@ -52,8 +52,8 @@ pipeline {
         stage('Stop containers') {
             steps {
                 sh '''
-                docker ps
-                docker images
+                // docker ps
+                // docker images
                 docker-compose stop
                 '''
             }
@@ -88,11 +88,11 @@ pipeline {
             }    
         }
     }
-    post {
-        always {
-            sh '#docker rm -vf $(docker ps -aq) 2> /dev/null' 
-            sh '#docker rmi -f $(docker images -aq) 2> /dev/null' 
-        }
-    }
+    // post {
+    //     always {
+    //         sh '#docker rm -vf $(docker ps -aq) 2> /dev/null' 
+    //         sh '#docker rmi -f $(docker images -aq) 2> /dev/null' 
+    //     }
+    // }
 }
 //
